@@ -10,4 +10,9 @@
 
 - [Easy](https://github.com/Yuz998/LeetCode/tree/master/String/Easy)
 
+[**Hash Table**](https://github.com/Yuz998/LeetCode/tree/master/Hash-Table)
+
+- [Easy](https://github.com/Yuz998/LeetCode/tree/master/Hash-Table/Easy)
+
+
 ### 持续更新中。。。。。。
