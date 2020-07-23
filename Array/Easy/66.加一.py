@@ -37,21 +37,24 @@ class Solution(object):
         如果第0位为0，则插入1.
         (耗时：16ms, 击败89.56)
         """
-        for i in range(len(digits)-1, -1, -1):
-            if digits[i] != 9:
-                digits[i] += 1
-                return digits
-            else:
-                digits[i] = 0
-                if digits[0] == 0:
-                    digits.insert(0, 1)
-                    return digits
+        # for i in range(len(digits)-1, -1, -1):
+        #     if digits[i] != 9:
+        #         digits[i] += 1
+        #         return digits
+        #     else:
+        #         digits[i] = 0
+        #         if digits[0] == 0:
+        #             digits.insert(0, 1)
+        #             return digits
 
         '''
         解法二：列表转整数然后加一，在转回列表
         list->str->int->str->list
-        (耗时：, 击败)
+        (耗时：24ms, 击败45.45%)
         '''
+        str_num = ''.join(str(i) for i in digits)
+        int_num = str(int(str_num)+1)
+        return [int(i) for i in str(int_num)]
 
 
 
