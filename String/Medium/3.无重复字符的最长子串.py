@@ -36,18 +36,35 @@ class Solution(object):
         解法一：哈希法
         (耗时：40ms, 击败98.15%)
         """
-        ## k记录起始下标，hashmap存放当前字符和最新下标
-        k, res, hashmap = -1, 0, dict()
-        for i, v in enumerate(s):
-            ## 如果当前字符在哈希表里，并且当前长度的起始下标小于上次出现的下标
-            ## 则移动当前长度起始下标，更新上次出现的下标
-            if v in hashmap and k < hashmap[v]:
-                k = hashmap[v]
-                hashmap[v] = i
-            else:
-                hashmap[v] = i
-                res = max(res, i - k)
+        # ## k记录起始下标，hashmap存放当前字符和最新下标
+        # k, res, hashmap = -1, 0, dict()
+        # for i, v in enumerate(s):
+        #     ## 如果当前字符在哈希表里，并且当前长度的起始下标小于上次出现的下标
+        #     ## 则移动当前长度起始下标，更新上次出现的下标
+        #     if v in hashmap and k < hashmap[v]:
+        #         k = hashmap[v]
+        #         hashmap[v] = i
+        #     else:
+        #         hashmap[v] = i
+        #         res = max(res, i - k)
+        # return res
+
+        '''
+        解法二: 滑动窗口，集合法
+        (耗时：56ms, 击败75.63%)
+        '''
+        s_set = set()
+        n = len(s)
+        right, res = 0, 0
+        for left in range(n):
+            while right < n and s[right] not in s_set:
+                s_set.add(s[right])
+                right += 1
+            if len(s_set) > res:
+                res = len(s_set)
+            s_set.remove(s[left])
         return res
+
 
 
 # @lc code=end
